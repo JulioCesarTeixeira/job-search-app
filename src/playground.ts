@@ -5,3 +5,5 @@ export function evenOrOdd(number: number) {
     return 'Odd'
   }
 }
+
+export const multiply = (first: number, second: number) => first * second
