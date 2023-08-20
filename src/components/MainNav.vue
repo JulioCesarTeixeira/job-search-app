@@ -1,5 +1,6 @@
 <script lang="ts">
 import ActionButton from '@/components/ActionButton.vue'
+import ProfileImage from '@/components/ProfileImage.vue'
 
 type MenuItem = {
   label: string
@@ -20,11 +21,21 @@ export default {
     return {
       company: 'Career Match',
       url: 'https://careers.google.com',
-      menuItems
+      menuItems,
+      isLoggedIn: false
     }
   },
+  methods: {
+    async handleSignIn() {
+      setTimeout(() => {
+        this.isLoggedIn = true
+      }, 1000)
+    }
+  },
+
   components: {
-    ActionButton
+    ActionButton,
+    ProfileImage
   }
 }
 </script>
@@ -45,7 +56,8 @@ export default {
           </ul>
         </nav>
         <div class="ml-auto flex h-full items-center">
-          <action-button />
+          <profile-image v-if="isLoggedIn" />
+          <action-button v-else @click="handleSignIn" />
         </div>
       </div>
     </div>
