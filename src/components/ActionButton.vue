@@ -1,18 +1,24 @@
 <script lang="ts" setup>
+import { computed } from 'vue'
+
 // Using composition API
-interface Props {
+type Props = {
   name: string
   variant: 'primary' | 'secondary'
+  disabled?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   variant: 'primary',
-  name: 'Go'
+  name: 'Go',
+  disabled: false
 })
+
+const isButtonDisabled = computed(() => props.disabled)
 </script>
 
 <template>
-  <button :class="variant">
+  <button :class="variant" :disabled="isButtonDisabled">
     {{ props.name }}
   </button>
 </template>
