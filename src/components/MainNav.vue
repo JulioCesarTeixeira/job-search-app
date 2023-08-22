@@ -55,7 +55,7 @@ export default {
         </nav>
         <div class="ml-auto flex h-full items-center">
           <profile-image v-if="isLoggedIn" />
-          <action-button v-else @click="handleSignIn" name="Sign In" variant="primary" />
+          <action-button v-else @click="handleSignIn" name="Sign In" />
         </div>
       </div>
     </div>
