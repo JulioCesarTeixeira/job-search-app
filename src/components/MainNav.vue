@@ -60,7 +60,7 @@ export default {
           <action-button v-else @click="handleSignIn" name="Sign In" />
         </div>
       </div>
-      <the-subnav />
+      <the-subnav v-if="isLoggedIn" />
     </div>
   </header>
 </template>
