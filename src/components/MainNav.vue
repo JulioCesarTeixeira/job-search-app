@@ -1,6 +1,7 @@
 <script lang="ts">
 import ActionButton from '@/components/ActionButton.vue'
 import ProfileImage from '@/components/ProfileImage.vue'
+import TheSubnav from '@/components/TheSubnav.vue'
 
 type MenuItem = {
   label: string
@@ -33,7 +34,8 @@ export default {
 
   components: {
     ActionButton,
-    ProfileImage
+    ProfileImage,
+    TheSubnav
   }
 }
 </script>
@@ -58,6 +60,7 @@ export default {
           <action-button v-else @click="handleSignIn" name="Sign In" />
         </div>
       </div>
+      <the-subnav />
     </div>
   </header>
 </template>
