@@ -1,15 +1,14 @@
 <script setup lang="ts">
+import nextItemInList from '@/utils/nextItemInList'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 const dynamicTextArray = ['Code', 'Design', 'Create', 'Build']
 const interval = ref<NodeJS.Timer | null>(null)
-
 const action = ref(dynamicTextArray[0])
+
 function changeTitle() {
   interval.value = setInterval(() => {
-    const currentIndex = dynamicTextArray.indexOf(action.value)
-    const nextIndex = (currentIndex + 1) % dynamicTextArray.length
-    const nextAction = dynamicTextArray[nextIndex]
+    const nextAction = nextItemInList(dynamicTextArray, action.value)
     action.value = nextAction
   }, 3000)
 }
