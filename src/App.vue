@@ -1,14 +1,17 @@
 <script lang="ts">
 import MainNav from '@/components/MainNav.vue'
+import TheHero from '@/components/TheHero.vue'
 
 export default {
   name: 'App',
   components: {
-    MainNav
+    MainNav,
+    TheHero
   }
 }
 </script>
 
 <template>
-  <MainNav />
+  <main-nav />
+  <the-hero />
 </template>
