@@ -1,11 +1,17 @@
 import TheHeadline from '@/components/TheHeadline.vue'
 import { render, screen } from '@testing-library/vue'
 
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 describe('TheHeadline', () => {
-  it('displays intro action text', () => {
+  beforeEach(() => {
     vi.useFakeTimers()
+  })
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
+  it('displays intro action text', () => {
     render(TheHeadline)
 
     const actionPhrase = screen.getByRole('heading', {
@@ -13,23 +19,18 @@ describe('TheHeadline', () => {
     })
 
     expect(actionPhrase).toBeTruthy()
-    vi.useRealTimers()
   })
 
   it('changes action text at an interval', () => {
-    vi.useFakeTimers()
     const mock = vi.fn()
 
     vi.stubGlobal('setInterval', mock)
     render(TheHeadline)
 
     expect(mock).toHaveBeenCalled()
-    vi.useRealTimers()
   })
 
   it('changes action text at an interval', async () => {
-    vi.useFakeTimers()
-
     render(TheHeadline)
 
     await vi.advanceTimersToNextTimerAsync()
@@ -39,5 +40,15 @@ describe('TheHeadline', () => {
     })
 
     expect(actionPhrase).toBeTruthy()
+  })
+
+  it('removes interval when component disappears', () => {
+    const clearInterval = vi.fn()
+    vi.stubGlobal('clearInterval', clearInterval)
+
+    const { unmount } = render(TheHeadline)
+    unmount()
+    expect(clearInterval).toHaveBeenCalled()
+    vi.unstubAllGlobals()
   })
 })

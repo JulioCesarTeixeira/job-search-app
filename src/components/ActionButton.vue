@@ -44,10 +44,10 @@ const isButtonDisabled = computed(() => props.disabled)
 
 <style lang="postcss" scoped>
 button {
-  @apply rounded px-5 py-3 font-medium;
+  @apply px-5 py-3 font-medium;
 }
 .primary {
-  @apply border-0 hover:shadow-blue bg-brand-blue-100 text-white;
+  @apply rounded hover:shadow-blue bg-brand-blue-100 text-white;
 }
 .secondary {
   @apply bg-transparent text-brand-blue-100 hover:bg-brand-blue-200 hover:text-white;
