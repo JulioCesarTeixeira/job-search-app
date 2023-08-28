@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import ActionButton from '@/components/ActionButton.vue'
+import ActionButton from '@/components/shared/ActionButton.vue'
+import TextInput from '@/components/shared/TextInput.vue'
 import { ref } from 'vue'
 
 const role = ref('')
@@ -18,12 +19,11 @@ function search(event: Event) {
     <div class="flex flex-1 flex-nowrap h-full text-base font-light">
       <div class="flex h-full flex-1 relative items-center pr-3">
         <label for="role" class="absolute left-0 -top-10">Role</label>
-        <input
-          name="role"
-          type="text"
-          v-model="role"
+        <text-input
           placeholder="Software engineer"
-          class="w-full text-lg font-normal focus:outline-none"
+          @handle-input="role = $event"
+          :value="role"
+          name="role"
         />
       </div>
 
@@ -33,12 +33,11 @@ function search(event: Event) {
       >
       <div class="flex h-full flex-1 relative items-center pl-3">
         <label for="role" class="absolute left-0 -top-10">Where?</label>
-        <input
-          name="location"
-          type="text"
-          v-model="location"
+        <text-input
           placeholder="Brussels"
-          class="w-full text-lg font-normal focus:outline-none"
+          @handle-input="location = $event"
+          :value="location"
+          name="location"
         />
       </div>
     </div>

@@ -1,7 +1,7 @@
 <script lang="ts">
-import ActionButton from '@/components/ActionButton.vue'
 import ProfileImage from '@/components/Navigation/ProfileImage.vue'
 import TheSubnav from '@/components/Navigation/TheSubnav.vue'
+import ActionButton from '@/components/shared/ActionButton.vue'
 
 type MenuItem = {
   label: string
