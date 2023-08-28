@@ -1,4 +1,4 @@
-import TheHeadline from '@/components/TheHeadline.vue'
+import TheHeadline from '@/components/JobSearch/TheHeadline.vue'
 import { render, screen } from '@testing-library/vue'
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'

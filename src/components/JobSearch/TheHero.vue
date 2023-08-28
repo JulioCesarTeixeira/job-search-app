@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TheHeadline from '@/components/TheHeadline.vue'
+import TheHeadline from '@/components/JobSearch/TheHeadline.vue'
 import JobSearchForm from './JobSearchForm.vue'
 </script>
 
